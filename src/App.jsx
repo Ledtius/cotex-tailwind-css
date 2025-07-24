@@ -1,11 +1,21 @@
-import { useState } from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero.jsx";
+import { BrowserRouter, Routes, Route } from "react-router";
+
+import Layout from "./components/layout/layout.jsx";
+
+import Home from "./components/pages/Home.jsx";
+import Consultancy from "./components/pages/Consultancy.jsx";
+
 function App() {
   return (
     <>
-      <Header />
-      <Hero />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="consultorias" element={<Consultancy />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

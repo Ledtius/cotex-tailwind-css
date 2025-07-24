@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 function Header() {
   const [showNav, setShowNav] = useState(false);
@@ -58,24 +59,24 @@ function Header() {
             </button>
 
             <li className="movil-text-menu" onClick={disappear}>
-              <a className="" href="#">
+              <Link className="" to="">
                 Consultorias
-              </a>
+              </Link>
             </li>
             <li className="movil-text-menu" onClick={disappear}>
-              <a className="" href="#">
+              <Link className="" to="">
                 Productos
-              </a>
+              </Link>
             </li>
             <li className="movil-text-menu" onClick={disappear}>
-              <a className="" href="#">
+              <Link className="" to="">
                 Sobre Nosotros
-              </a>
+              </Link>
             </li>
             <li className="movil-text-menu" onClick={disappear}>
-              <a className="" href="#">
+              <Link className="" to="">
                 Contacto
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
