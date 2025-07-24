@@ -3,12 +3,16 @@ import { useState, useEffect } from "react";
 function Header() {
   const [showNav, setShowNav] = useState(false);
 
+  function disappear() {
+    setShowNav(false);
+  }
+
   return (
     <>
       <header className="w-screen flex justify-between items-center shadow-2xs bg-gray-100 h-fit relative">
-        <figure className="flex items-center gap-1.5 p-5 size-fit">
+        <figure className="flex items-center gap-1.5 p-5 size-fit cursor-pointer group">
           <svg
-            className="size-10"
+            className="size-10  transition-rotate duration-300 group-hover:rotate-10"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >
@@ -17,7 +21,7 @@ function Header() {
           <h2 className="font-bold">Cotec</h2>
         </figure>
         <button
-          className="size-fit p-5"
+          className="size-fit p-5 movil-icons"
           onClick={() => {
             setShowNav(true);
           }}
@@ -31,20 +35,15 @@ function Header() {
           </svg>
         </button>
         <nav
-          className={`absolute z-10 top-0 w-4/5 p-2 h-screen transition-all duration-800 ease-in-out ${
+          className={`absolute z-10 top-0  w-4/5 p-5 h-screen transition-all duration-400 ease-in-out pointer-events-auto ${
             showNav
-              ? "bg-amber-500 opacity-100"
-              : "opacity-0  pointer-events-none top-full"
+              ? "bg-amber-500 opacity-100 "
+              : "opacity-0  pointer-events-none "
           }`}
         >
-          <button className="">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-              <path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z" />
-            </svg>
-          </button>
-
-          <ul className="font-semibold flex flex-col gap-5 text-2xl h-fit">
+          <ul className="font-semibold flex flex-col gap-5 text-2xl h-fit w-full pt-1">
             <button
+              className="size-fit movil-icons"
               onClick={() => {
                 setShowNav(false);
               }}
@@ -58,17 +57,25 @@ function Header() {
               </svg>
             </button>
 
-            <li>
-              <a href="#">Consultorias</a>
+            <li className="movil-text-menu" onClick={disappear}>
+              <a className="" href="#">
+                Consultorias
+              </a>
             </li>
-            <li>
-              <a href="#">Productos</a>
+            <li className="movil-text-menu" onClick={disappear}>
+              <a className="" href="#">
+                Productos
+              </a>
             </li>
-            <li>
-              <a href="#">Sobre Nosotros</a>
+            <li className="movil-text-menu" onClick={disappear}>
+              <a className="" href="#">
+                Sobre Nosotros
+              </a>
             </li>
-            <li>
-              <a href="#">Contacto</a>
+            <li className="movil-text-menu" onClick={disappear}>
+              <a className="" href="#">
+                Contacto
+              </a>
             </li>
           </ul>
         </nav>

@@ -1,1 +1,10 @@
 @import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
+
+.movil-text-menu {
+  @apply transition-transform duration-200 active:scale-102;
+}
+
+.movil-icons {
+  @apply transition-all duration-200 active:scale-110 active:opacity-40;
+}
